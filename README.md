@@ -2,7 +2,7 @@
 
 UNC Charlotte · DTSC 2302 Modeling and Society · Neelesh Reddi and Anirudh Ramesh
 
-[Read the 16-page research report draft](report/Research_Report.pdf) · [Editable report](report/Research_Report.md) · [Reserved-year results](results/final/overall.csv) · [Income-group accuracy](results/final/groups.csv)
+[Reserved-year results](results/final/overall.csv) · [Income-group accuracy](results/final/groups.csv)
 
 Across 92 eligible counties, the median typical-home-value-to-income ratio rose in every fixed income group from 2019 to 2024. The final evaluation tested 12 one-month forecasts per county, October 2025 through September 2026. The Ridge model using earlier home values and mortgage rates had mean county MAE of **$360.47**, versus **$719.59** for repeating the last value. Its MAPE averaged **0.251% in lower-income counties** and **0.082% in higher-income counties**. These results describe one year of retrospective index forecasts using a revised data vintage. Data Provided by Zillow Group.
 
@@ -31,8 +31,8 @@ The original 12 November 1 input files are held by the group. Copy them to data/
 
 The [development plan](config/panel_design.json) specifies the 92-county cohort, three ML regressors, statistical benchmarks, and 36 expanding monthly validation windows. The [final protocol](config/final_evaluation.md) was committed before examining the reserved outcomes. The code fits each model through the prior month, predicts one month ahead, and verifies the county-month keys and naive predictions against observed data. The [development summaries](results/development/) and [figures](report/figures/) document model selection and affordability. The development summaries and historical worksheets describe the earlier phase of the project.
 
-Dependencies include Nixtla MLForecast and StatsForecast. Zillow Research supplies ZHVI, Freddie Mac via FRED supplies MORTGAGE30US, and the Census Bureau supplies ACS five-year table B19013. See the report appendix and raw manifest for data access and measurement limitations.
+Dependencies include Nixtla MLForecast and StatsForecast. Zillow Research supplies ZHVI, Freddie Mac via FRED supplies MORTGAGE30US, and the Census Bureau supplies ACS five-year table B19013. See [the analysis walkthrough](docs/ANALYSIS_WALKTHROUGH.md) and raw manifest for data access and measurement limitations.
 
 ## Student review
 
-The technical evaluation is complete. The [report](report/Research_Report.md) includes a draft literature synthesis, references and technical appendix. The group must confirm its sources in Atkins, complete its actual contribution statement and jointly review the report and AI disclosure before submission. The [AI assistance log](AI_ASSISTANCE_LOG.md) records the work.
+The technical evaluation is complete. The group must confirm its sources in Atkins, complete its actual contribution statement and jointly review the report and AI disclosure before submission. The [AI assistance log](AI_ASSISTANCE_LOG.md) records the work.

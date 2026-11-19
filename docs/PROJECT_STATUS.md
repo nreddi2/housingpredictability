@@ -1,6 +1,6 @@
 ## November 19 update
 
-The reserved year has now been evaluated under the versioned protocol in config/final_evaluation.md. The current findings, figures, reproduction steps and student review items are in the root README and report/Research_Report.md. All subsequent text in this file is the historical November 1 status.
+The reserved year has now been evaluated under the versioned protocol in config/final_evaluation.md. The current findings, figures, reproduction steps and student review items are in the root README and the results directory. All subsequent text in this file is the historical November 1 status.
 
 # Project status — November 1, 2026
 

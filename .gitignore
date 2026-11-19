@@ -11,3 +11,5 @@ output/
 *.log
 .env
 .env.*
+/report/Research_Report.md
+/report/Research_Report.pdf
