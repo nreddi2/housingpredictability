@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+tmp/
+.pytest_cache/
+data/raw/*.csv
+data/raw/*.json
+!data/raw/pilot_download_manifest.json
+data/processed/
+output/
+*.log
+.env
+.env.*
+/report/Research_Report.md
+/report/Research_Report.pdf

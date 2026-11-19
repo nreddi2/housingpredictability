@@ -1,0 +1,98 @@
+[
+  {
+    "filename": "zillow_county_zhvi_2026-11-01.csv",
+    "url": "https://files.zillowstatic.com/research/public_csvs/zhvi/County_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv",
+    "retrieved_at_utc": "2026-11-01T20:21:21.121864+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "12570036eb1a7540594bb1264270a68f43fe7439b23e81047f9ae76307f1f519",
+    "bytes": 13632587
+  },
+  {
+    "filename": "mortgage30us_2026-11-01.csv",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US",
+    "retrieved_at_utc": "2026-11-01T20:21:21.303994+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "580c7d824e6dce4a3d4fa92ed9954df512c6da63992b073c1fafccc88886fa8d",
+    "bytes": 47011
+  },
+  {
+    "filename": "acs5_income_nc_2015_2026-11-01.json",
+    "url": "https://api.census.gov/data/2015/acs/acs5?get=NAME%2CB19013_001E%2CB19013_001M&for=county%3A%2A&in=state%3A37",
+    "retrieved_at_utc": "2026-11-01T22:15:15.429701+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "8e7a84118e4b0707d292cc9ed8b247db63d5d629d9a42bf8e900fff4dd96581d",
+    "bytes": 6239
+  },
+  {
+    "filename": "acs5_income_nc_2016_2026-11-01.json",
+    "url": "https://api.census.gov/data/2016/acs/acs5?get=NAME%2CB19013_001E%2CB19013_001M&for=county%3A%2A&in=state%3A37",
+    "retrieved_at_utc": "2026-11-01T22:15:15.905643+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "a5b03657e81c33821953437928737b18880f662ba958782d849f5eff5662edc1",
+    "bytes": 6238
+  },
+  {
+    "filename": "acs5_income_nc_2017_2026-11-01.json",
+    "url": "https://api.census.gov/data/2017/acs/acs5?get=NAME%2CB19013_001E%2CB19013_001M&for=county%3A%2A&in=state%3A37",
+    "retrieved_at_utc": "2026-11-01T22:15:18.645692+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "a0766cab394aa8d6f1003b9a6ae78271d419c200fe6544e5c7ca24f398ad8a1b",
+    "bytes": 6237
+  },
+  {
+    "filename": "acs5_income_nc_2018_2026-11-01.json",
+    "url": "https://api.census.gov/data/2018/acs/acs5?get=NAME%2CB19013_001E%2CB19013_001M&for=county%3A%2A&in=state%3A37",
+    "retrieved_at_utc": "2026-11-01T22:15:19.151354+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "25ac0dacda3b91da807d73ddbe2eab144e827a08147ac0d4b8c38cd76f14145a",
+    "bytes": 6240
+  },
+  {
+    "filename": "acs5_income_nc_2019_2026-11-01.json",
+    "url": "https://api.census.gov/data/2019/acs/acs5?get=NAME%2CB19013_001E%2CB19013_001M&for=county%3A%2A&in=state%3A37",
+    "retrieved_at_utc": "2026-11-01T22:15:19.715716+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "4d33a55242c2b8dbe752d5b52fd804dfc6fa0f920021b6d1688aa967cec31a8c",
+    "bytes": 6238
+  },
+  {
+    "filename": "acs5_income_nc_2020_2026-11-01.json",
+    "url": "https://api.census.gov/data/2020/acs/acs5?get=NAME%2CB19013_001E%2CB19013_001M&for=county%3A%2A&in=state%3A37",
+    "retrieved_at_utc": "2026-11-01T22:15:20.425073+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "f1b5a36f0a34b3cace00b3bee08cc869d5e2cbe35f136e930a82034fd618d8ad",
+    "bytes": 6246
+  },
+  {
+    "filename": "acs5_income_nc_2021_2026-11-01.json",
+    "url": "https://api.census.gov/data/2021/acs/acs5?get=NAME%2CB19013_001E%2CB19013_001M&for=county%3A%2A&in=state%3A37",
+    "retrieved_at_utc": "2026-11-01T22:15:20.916947+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "21fde1ab3ee32f5bb6b0aebff1b69bfe15f8e54caa1ca03f30870a84411da23d",
+    "bytes": 6244
+  },
+  {
+    "filename": "acs5_income_nc_2022_2026-11-01.json",
+    "url": "https://api.census.gov/data/2022/acs/acs5?get=NAME%2CB19013_001E%2CB19013_001M&for=county%3A%2A&in=state%3A37",
+    "retrieved_at_utc": "2026-11-01T22:15:21.419827+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "61a83719a7145c7b6b30a02480e87d95f0c59949c434b2be665838db7ff30f2f",
+    "bytes": 6249
+  },
+  {
+    "filename": "acs5_income_nc_2023_2026-11-01.json",
+    "url": "https://api.census.gov/data/2023/acs/acs5?get=NAME%2CB19013_001E%2CB19013_001M&for=county%3A%2A&in=state%3A37",
+    "retrieved_at_utc": "2026-11-01T22:15:22.006996+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "b2c2b12aa75a6f31234cbca7a7ed9671e192218e99ab9e8a841f317cab1116b3",
+    "bytes": 6246
+  },
+  {
+    "filename": "acs5_income_nc_2024_2026-11-01.json",
+    "url": "https://api.census.gov/data/2024/acs/acs5?get=NAME%2CB19013_001E%2CB19013_001M&for=county%3A%2A&in=state%3A37",
+    "retrieved_at_utc": "2026-11-01T22:15:22.532757+00:00",
+    "project_access_date": "2026-11-01",
+    "sha256": "f7b38baccf131ebaf469819d071cac2c146657f4b278245bb1ba8d65fd301b6a",
+    "bytes": 6249
+  }
+]

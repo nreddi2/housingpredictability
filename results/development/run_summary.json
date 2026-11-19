@@ -1,0 +1,26 @@
+{
+  "eligible_counties": 92,
+  "excluded_counties": [
+    "Stanly County",
+    "Burke County",
+    "Chowan County",
+    "Robeson County",
+    "McDowell County",
+    "Avery County",
+    "Watauga County",
+    "Alamance County"
+  ],
+  "group_counts": {
+    "Higher": 32,
+    "Lower": 32,
+    "Middle": 28
+  },
+  "validation_start": "2022-10-31",
+  "validation_end": "2025-09-30",
+  "forecasts_per_model": 3312,
+  "final_holdout_evaluated": false,
+  "best_development_model_by_mean_relative_MAE": "AutoARIMA",
+  "best_rate_using_model_by_mean_relative_MAE": "Ridge_with_rates",
+  "current_invocation_elapsed_seconds": 3.1,
+  "boundary_uncertain_eligible_count": 40
+}
