@@ -8,7 +8,7 @@ Across 92 eligible counties, the median typical-home-value-to-income ratio rose 
 
 ## Reproduce scores directly from this checkout
 
-Use Python 3.12. On Windows PowerShell:
+Use Python 3.12 on Windows PowerShell:
 
 ~~~powershell
 py -3.12 -m venv .venv
@@ -35,4 +35,4 @@ Dependencies include Nixtla MLForecast and StatsForecast. Zillow Research suppli
 
 ## Student review
 
-The technical evaluation is complete. The group must confirm its sources in Atkins, complete its actual contribution statement and jointly review the report and AI disclosure before submission. The [AI assistance log](AI_ASSISTANCE_LOG.md) records the work.
+The technical evaluation is complete. The group must confirm its sources in Atkins, complete its actual contribution statement and jointly review the report and AI disclosure before submission.
