@@ -1,87 +1,38 @@
-# North Carolina housing predictability
+# North Carolina housing affordability and forecast accuracy
 
-DTSC 2302 Modeling and Society, UNC Charlotte. Neelesh Reddi and Anirudh Ramesh.
+UNC Charlotte · DTSC 2302 Modeling and Society · Neelesh Reddi and Anirudh Ramesh
 
-We study housing affordability and whether time series forecasts of home values perform similarly across county income groups. The project includes a Mecklenburg pilot and an expanded analysis of 92 NC counties with complete development histories. Income groups use fixed 2019 ACS estimates. The final test period remains separate from development.
+[Read the 16-page research report draft](report/Research_Report.pdf) · [Editable report](report/Research_Report.md) · [Reserved-year results](results/final/overall.csv) · [Income-group accuracy](results/final/groups.csv)
 
-## Start here
+Across 92 eligible counties, the median typical-home-value-to-income ratio rose in every fixed income group from 2019 to 2024. The final evaluation tested 12 one-month forecasts per county, October 2025 through September 2026. The Ridge model using earlier home values and mortgage rates had mean county MAE of **$360.47**, versus **$719.59** for repeating the last value. Its MAPE averaged **0.251% in lower-income counties** and **0.082% in higher-income counties**. These results describe one year of retrospective index forecasts using a revised data vintage. Data Provided by Zillow Group.
 
-1. Read [the multi-county findings](docs/PANEL_FINDINGS.md) and [the project plan](docs/PROJECT_PLAN.md).
-2. Use [the initial pilot findings](docs/PILOT_FINDINGS.md) to understand the first experiment. It is a historical progress record; its ACS-pending status has since been resolved.
-3. Review [the AI assistance log](AI_ASSISTANCE_LOG.md). Students must verify and understand the work before submitting it.
-
-## Reproduce the pilot
+## Reproduce scores directly from this checkout
 
 Use Python 3.12. On Windows PowerShell:
 
-```powershell
+~~~powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
-.\.venv\Scripts\python.exe scripts/download_data.py
-.\.venv\Scripts\python.exe scripts/run_pilot.py
-```
+.\.venv\Scripts\python.exe scripts/summarize_final.py
+~~~
 
-The existing local `.venv` is ready to run. No environment activation is required.
+On macOS or Linux use the virtual environment’s bin/python. The summary script reads the committed [forecast error records](results/final/forecast_errors.csv). It regenerates overall, county, income-group, sensitivity and monthly scores. No API key or raw downloads are needed for this step.
 
-The manifest records exact download URLs, access times, and SHA-256 hashes. Provider files change over time. The downloader refuses to substitute changed live data for the recorded vintage. Group members need the original raw snapshots to reproduce these exact results; transfer them through the group's shared storage. Raw data, generated outputs, and the virtual environment are excluded from Git. Keep publisher acknowledgments when sharing results.
+## Refit the experiments from source
 
-The Census API currently requires a key. The ten income snapshots needed for the panel are already downloaded locally. A key is needed only to fetch new ACS files, not to run the offline analysis. Downloading uses the local `CENSUS_API_KEY` environment variable. Never put a key in code, notebooks, or Git. Zillow/FRED CSV downloads and local StatsForecast/MLForecast do not need additional API keys. This project does not call TimeGPT.
+The original 12 November 1 input files are held by the group. Copy them to data/raw/ alongside the [tracked manifest](data/raw/pilot_download_manifest.json). It lists public provider URLs, filenames, retrieval timestamps and hashes. Zillow and FRED revise live files. Contact the group for access to the exact snapshot for a byte-identical refit. A refreshed vintage is a different experiment. The download script documents acquisition and uses the local CENSUS_API_KEY environment variable only for new Census requests.
 
-## Reproduce the county analysis
-
-Once the raw snapshots are present:
-
-```powershell
+~~~powershell
 .\.venv\Scripts\python.exe scripts/run_panel.py
 .\.venv\Scripts\python.exe scripts/verify_panel.py
 .\.venv\Scripts\python.exe scripts/interpret_panel.py
-```
+.\.venv\Scripts\python.exe scripts/run_final.py
+~~~
 
-To acquire the income files on another computer, set `CENSUS_API_KEY` locally and run:
+The [development plan](config/panel_design.json) specifies the 92-county cohort, three ML regressors, statistical benchmarks, and 36 expanding monthly validation windows. The [final protocol](config/final_evaluation.md) was committed before examining the reserved outcomes. The code fits each model through the prior month, predicts one month ahead, and verifies the county-month keys and naive predictions against observed data. The [development summaries](results/development/) and [figures](report/figures/) document model selection and affordability. The development summaries and historical worksheets describe the earlier phase of the project.
 
-```powershell
-.\.venv\Scripts\python.exe scripts/download_data.py --acs-years 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024
-```
+Dependencies include Nixtla MLForecast and StatsForecast. Zillow Research supplies ZHVI, Freddie Mac via FRED supplies MORTGAGE30US, and the Census Bureau supplies ACS five-year table B19013. See the report appendix and raw manifest for data access and measurement limitations.
 
-`run_panel.py --prepare-only` verifies inputs and fixes the cohort before fitting. `--analyze-only` rebuilds the summaries and charts from existing validation predictions. The design and data hashes must match the frozen cohort. Edit the design only as a documented new experiment, not to relabel old results.
+## Student review
 
-The panel uses every county with 129 complete positive monthly ZHVI observations from January 2015 through September 2025. It evaluates 36 one-month targets per county, from October 2022 through September 2025. The ML models pool counties, while statistical models fit each county separately. This training distinction is documented in the findings. Four EDA charts and two evaluation charts are in `output/panel/`.
-
-The verification script checks the saved targets, baseline, metrics, group summaries, and affordability ratios against original inputs. The interpretation script adds two charts, coefficient output, and paired rate-feature summaries. See [the walkthrough](docs/ANALYSIS_WALKTHROUGH.md), [interpretation notes](docs/MODEL_INTERPRETATION.md), and [new source verification notes](docs/SOURCE_VERIFICATION_ADDITIONS.md).
-
-## GitHub Desktop
-
-This folder is already a Git repository. Its remote is `https://github.com/nreddi2/housingpredictability.git`; the working branch is `codex/forecasting-pilot`.
-
-In GitHub Desktop, use **File > Add Local Repository** and choose:
-
-```text
-C:\Users\nreddi\OneDrive\Documents\ChatGPT\DTSC 2302 FInal Project
-```
-
-Adding the folder to Desktop displays the existing repository; it does not create a new copy. GitHub website updates require committed changes to be pushed. GitHub Desktop's account authentication handles that separately from Census API access.
-
-## What runs
-
-- County coverage audit of the NC Zillow series.
-- Monthly reshape, county FIPS identifiers, and monthly means of weekly mortgage rates.
-- Mecklenburg pilot with a last-value baseline, drift benchmark, AutoARIMA, and three MLForecast models (Ridge, Random Forest, histogram gradient boosting).
-- The three ML models run both with and without past mortgage rates.
-- Twelve rolling one-month validation forecasts on October 2024 through September 2025. October 2025 through September 2026 remains reserved for final evaluation.
-- MAE, RMSE, MAPE, signed errors, and four charts (two descriptive charts and two evaluation charts).
-
-The pilot's four charts are not four EDA figures; the expanded panel supplies four EDA figures separately. Both experiments use a current revised data snapshot, so they are not fully reconstructed real-time forecasting experiments. Results are preliminary and do not establish causation or discrimination.
-
-## Layout
-
-- `scripts/`: download and executable analysis code.
-- `data/raw/pilot_download_manifest.json`: tracked provenance and hashes.
-- `data/raw/`: original datasets, excluded from Git.
-- `data/processed/`: regenerated monthly datasets, excluded from Git.
-- `output/pilot/`: regenerated coverage table, predictions, metrics, run metadata, and charts.
-- `output/panel/`: fixed groups, eligibility, affordability comparison, county/group forecast errors, sensitivity checks, and charts.
-- `config/panel_design.json`: predeclared cohort and modeling design.
-- `docs/`: scope, decisions, and progress summaries.
-- `requirements-lock.txt`: installed Python package versions for this run.
-
-See the plan for source documentation and the outstanding instructor and research decisions. AI assistance must be disclosed under the course policy, which the group still needs to confirm.
+The technical evaluation is complete. The [report](report/Research_Report.md) includes a draft literature synthesis, references and technical appendix. The group must confirm its sources in Atkins, complete its actual contribution statement and jointly review the report and AI disclosure before submission. The [AI assistance log](AI_ASSISTANCE_LOG.md) records the work.

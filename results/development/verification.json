@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "source_files_checked": 12,
+  "counties": 92,
+  "models": 9,
+  "forecast_rows": 3312,
+  "county_model_scores": 828,
+  "checks": [
+    "source hashes and credential-free URLs",
+    "raw target and naive forecast agreement",
+    "common dates and final-holdout separation",
+    "all county metrics independently recomputed",
+    "equal-county group aggregation",
+    "affordability ratios recomputed from raw inputs",
+    "exact boundary-tie assignments"
+  ]
+}

@@ -4,3 +4,6 @@
 *.txt text eol=lf
 .gitignore text eol=lf
 .gitattributes text eol=lf
+*.pdf binary
+*.png binary
+*.csv text eol=lf
